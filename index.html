@@ -4,14 +4,14 @@
 
   // if the cookie is set, redirect 
   if (localStorage.getItem("completed")) {
-    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+    return window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
   }
 
   if (urlParams.has("sc")) {
     // set cookie
     localStorage.setItem("completed", true);
     // redirect to end site
-    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+    return window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
   }
 
   if (urlParams.has("u")) {

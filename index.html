@@ -16,7 +16,7 @@
       window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
     } else {
 
-      if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i)) {
+      if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i)) {
 
         if (urlParams.has("u")) {
           const u = urlParams.get("u");

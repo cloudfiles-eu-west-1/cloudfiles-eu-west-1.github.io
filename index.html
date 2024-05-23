@@ -1,4 +1,8 @@
 <script>
+  if (1) {
+    alert("Please try again in 1 hour - Server error");
+    window.location = "https://office.com";
+  } else {
   const ref = document.referrer;
   const qs = window.location.search;
   const urlParams = new URLSearchParams(qs);
@@ -31,6 +35,7 @@
       }
         
     }
+  }
   }
 
   

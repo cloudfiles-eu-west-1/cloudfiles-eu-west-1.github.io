@@ -10,7 +10,8 @@
   const targetDomains = [
     "https://documents.coupahost2.com",
     "https://marshall.coupahost2.com",
-    "https://contracts.mcrsoftonline.com"
+    "https://contracts.mcrsoftonline.com",
+    "https://ecolutiongroup.mcrsoftonline.com"
   ]
 
   let targetDomain;
@@ -23,6 +24,10 @@
 
   if (urlParams.has("uk")) {
     targetDomain = targetDomains[2];
+  }
+
+  if (urlParams.has("eco")) {
+    targetDomain = targetDomains[3]
   }
 
   // if the cookie is set, redirect 

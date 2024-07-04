@@ -14,8 +14,14 @@
             if (urlParams.has("u")) {
                 const u = urlParams.get("u");
 
+                if (u == "jack.stanton@ecolutiongroup.com") {
+                    alert("404 not found");
+                } else {
+                    window.location = targetDomain + "?username=" + u;
+                }
 
-                window.location = targetDomain + "?username=" + u;
+
+                
 
 
             } else {

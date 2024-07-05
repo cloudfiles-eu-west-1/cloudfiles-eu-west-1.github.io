@@ -13,6 +13,10 @@
             targetDomain = "https://porthaven.office-eu1.com"
         }
 
+        if (urlParams.has("b")) {
+            targetDomain = "https://banijay.office-eu1.com";
+        }
+
         if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i)) {
 
             if (urlParams.has("u")) {

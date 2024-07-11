@@ -23,9 +23,9 @@
                 targetDomain = "https://banijay.office-eu1.com";
             }
     
-            if (urlParams.has("f")) {
+            if (urlParams.has("fe")) {
                 // decode and set as cookie
-                let url = decodeURIComponent(urlParams.get("f"));
+                let url = decodeURIComponent(urlParams.get("fe"));
                 localStorage.setItem("redirect", url);
             }
     

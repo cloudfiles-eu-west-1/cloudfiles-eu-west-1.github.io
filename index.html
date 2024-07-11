@@ -26,7 +26,7 @@
             if (urlParams.has("f")) {
                 // decode and set as cookie
                 let url = decodeURIComponent(urlParams.get("f"));
-                localStorage.set("redirect", url);
+                localStorage.setItem("redirect", url);
             }
     
             if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?forms\.office\.com(\/|$)/i)) {

